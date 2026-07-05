@@ -1,22 +1,14 @@
 // HA VY FASHION — database schema
 //
-// Local development uses SQLite (zero setup, file-based).
-// Before deploying to Vercel, switch the datasource below to PostgreSQL
-// (e.g. Neon) since Vercel's serverless filesystem is not persistent.
-//
-//   datasource db {
-//     provider = "postgresql"
-//     url      = env("DATABASE_URL")
-//   }
-//
-// Then run: npx prisma migrate deploy
+// Using PostgreSQL (Neon) — required for Vercel's serverless deployment
+// since its filesystem is not persistent (rules out SQLite in production).
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
